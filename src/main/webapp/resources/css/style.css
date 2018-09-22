@@ -1,0 +1,8 @@
+
+/* Do not display List style for JSF Messages */
+div.alert ul {
+    list-style: none;
+    margin-left: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+}

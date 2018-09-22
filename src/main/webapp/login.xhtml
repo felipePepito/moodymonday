@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    
+    <ui:composition template="template.xhtml">
+    
+        <ui:define name="title">MoodyMonday - Share Your Mood</ui:define>
+        
+        <ui:define name="main">
+            
+            <h3>Login</h3>
+            
+            <c:if test="#{fn:length(facesContext.getMessageList()) != 0}"> 
+            <div class="alert alert-success" role="alert">
+                <h:messages/>
+            </div>
+            </c:if>
+
+            <h:form>
+                <h:panelGrid columns="2">
+                    
+                    <h:outputLabel for="username" value="ID"/>
+                    <h:inputText id="username" 
+                                 value="#{userController.idUser}" 
+                                 styleClass="form-control m-1"/>
+                    
+                    <h:outputLabel for="password" value="Password"/>
+                    <h:inputSecret id="password" 
+                                   value="#{userController.password}"
+                                   styleClass="form-control m-1"/>
+
+                </h:panelGrid>
+                
+                <h:commandButton id="submit"
+                                 value="Login"
+                                 action="#{userController.login()}" 
+                                 styleClass="btn btn-outline-secondary m-1"/>
+            </h:form>
+
+        </ui:define>
+        
+    </ui:composition>
+    
+</html>
