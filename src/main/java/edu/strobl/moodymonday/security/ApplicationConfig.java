@@ -22,9 +22,9 @@ import javax.security.enterprise.identitystore.Pbkdf2PasswordHash;
                 loginPage = "/login.xhtml",
                 errorPage = "/login.xhtml"))
 @DatabaseIdentityStoreDefinition(
-        dataSourceLookup = "${'jdbc/moodymonday'}",
-        callerQuery = "#{'select PASSWORD from moodymondayuser where IDUSER = ?'}",
-        groupsQuery = "select GROUPNAME from userentitygroups where IDUSER = ?",
+        dataSourceLookup = "${'jdbc/mariadb'}",
+        callerQuery = "#{'select PASSWORD from MOODYMONDAYUSER where IDUSER = ?'}",
+        groupsQuery = "select GROUPNAME from USERENTITYGROUPS where IDUSER = ?",
         hashAlgorithm = Pbkdf2PasswordHash.class,
         priorityExpression = "#{100}",
         hashAlgorithmParameters = {

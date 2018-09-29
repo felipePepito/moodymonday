@@ -5,7 +5,7 @@
  */
 package edu.strobl.moodymonday;
 
-import edu.strobl.moodymonday.web.MoodController;
+import edu.strobl.moodymonday.web.MoodStateBean;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
  */
 public class MoodControllerTest {
     
-    private MoodController moodController;
+    private MoodStateBean moodController;
     
     @Test @Disabled
     void submitMoodStateShouldReturnResponse() {

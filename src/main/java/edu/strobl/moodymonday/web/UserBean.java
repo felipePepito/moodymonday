@@ -29,18 +29,14 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Named
 @RequestScoped
-public class UserController {
+public class UserBean {
     
     private String idUser;
     private String password;
     
-    private List<MoodState> listMoodState;
     
     @Inject
     private UserEJB userEJB;
-    
-    @Inject
-    private MoodStateEJB moodStateEJB;
     
     @Inject
     private SecurityContext securityContext;
@@ -65,7 +61,6 @@ public class UserController {
             message = new FacesMessage("Login Successfull");
             navigation = "moodTrend";
             
-            listMoodState = moodStateEJB.getAllMoodStates();
         } else {
             message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login Failed", "");
         }
@@ -118,14 +113,5 @@ public class UserController {
         this.password = password;
     }
 
-    public List<MoodState> getListMoodState() {
-        return listMoodState;
-    }
-
-    public void setListMoodState(List<MoodState> listMoodState) {
-        this.listMoodState = listMoodState;
-    }
-    
-    
     
 }

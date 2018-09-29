@@ -12,13 +12,7 @@
         <ui:define name="title">#{bundle.TitleMain}</ui:define>
         
         <ui:define name="main">
-            <h:form>
-                <h:selectOneMenu value="#{languageBean.localeCode}" onchange="submit()"
-			valueChangeListener="#{languageBean.localeChanged}">
-   			<f:selectItems value="#{languageBean.countriesInMap}" /> 
-   		</h:selectOneMenu>
-                
-            </h:form>
+            
             
             <h1 class="display-4">Hi!</h1>
             <p class="lead">#{bundle.EnterMoodState}</p>
@@ -30,7 +24,7 @@
                     <h:panelGroup>
                         <h:inputText id="id"
                                      title="#{bundle.IdLabel}"
-                                     value="#{moodController.moodState.idUser}"
+                                     value="#{moodStateBean.moodState.idUser}"
                                      required="true"
                                      requiredMessage="#{bundle.errorIdRequired}"
                                      maxlength="10" 
@@ -41,7 +35,7 @@
                     <h:outputLabel for="arousal" value="#{bundle.ArousalLabel}" />
                     <h:selectOneListbox id="arousal"
                                  title="#{bundle.ArousalLabel}"
-                                 value="#{moodController.moodState.arousal}"
+                                 value="#{moodStateBean.moodState.arousal}"
                                  required="true"
                                  requiredMessage="#{bundle.errorArousalRequired}"
                                  styleClass="form-control m-1">
@@ -56,7 +50,7 @@
                     <h:outputLabel for="valence" value="#{bundle.ValenceLabel}" />
                     <h:selectOneListbox id="valence"
                                  title="#{bundle.ValenceLabel}"
-                                 value="#{moodController.moodState.valence}"
+                                 value="#{moodStateBean.moodState.valence}"
                                  required="true"
                                  requiredMessage="#{bundle.ErrorValenceRequired}"
                                  styleClass="form-control m-1">
@@ -73,7 +67,7 @@
                     <h:panelGroup>
                         <h:commandButton id="submit" 
                                          value="#{bundle.Submit}" 
-                                         action="#{moodController.submitMoodState()}"
+                                         action="#{moodStateBean.submitMoodState()}"
                                          styleClass="btn btn-outline-success m-1"/>
                         <h:commandButton id="reset" 
                                          value="#{bundle.Reset}" 

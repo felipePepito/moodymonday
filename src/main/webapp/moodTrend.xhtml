@@ -26,7 +26,7 @@
                             { id: 'arousal', label: 'Arousal', type: 'number' }                                     
                         ], 
                         rows: [
-                        #{dataTableConverter.moodStateListToDataString(userController.listMoodState)}
+                        #{moodStateListBean.getMoodStateListForChart()}
                         ]
                     };
                     

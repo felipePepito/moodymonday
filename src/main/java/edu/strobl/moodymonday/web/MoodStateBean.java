@@ -19,7 +19,7 @@ import org.apache.logging.log4j.Logger;
 
 @Named
 @RequestScoped
-public class MoodController {
+public class MoodStateBean {
     
     @Inject
     private Logger logger;
@@ -49,14 +49,13 @@ public class MoodController {
                     "Due to an internal Error, persisting your current Mood to the database failed. Please try again later.");
             ctx.addMessage("response:result", message);
         }
-        logger.debug("moodState for user-id {}", this.moodState.getIdUser());
         
         return "response";
     }
     
     /*** Getter, Setter, Constructor ***/
     
-    public MoodController() {
+    public MoodStateBean() {
         this.moodState = new MoodState();
     }
     

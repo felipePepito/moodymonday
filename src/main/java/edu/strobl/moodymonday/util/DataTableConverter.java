@@ -12,7 +12,6 @@ import javax.ejb.Stateless;
 import javax.inject.Named;
 
 @Stateless
-@Named
 public class DataTableConverter {
     
     /**
@@ -53,6 +52,7 @@ public class DataTableConverter {
         
         String data = "";
         
+        if(!moodStateList.isEmpty()) {
             for(MoodState ms : moodStateList) {
                
                 // Date, using the Date Constructor that expects the UNIX epoch interval
@@ -75,7 +75,7 @@ public class DataTableConverter {
                     data += ",";
                 }
             }
-            
+        }
         return data;
         
     }

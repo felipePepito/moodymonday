@@ -29,19 +29,19 @@
                     
                     <h:outputLabel for="username" value="ID"/>
                     <h:inputText id="username" 
-                                 value="#{userController.idUser}"
+                                 value="#{userBean.idUser}"
                                  styleClass="form-control m-1"/>
                     
                     <h:outputLabel for="password" value="Password"/>
                     <h:inputSecret id="password" 
-                                   value="#{userController.password}"
+                                   value="#{userBean.password}"
                                    styleClass="form-control m-1"/>
 
                 </h:panelGrid>
                 
                 <h:commandButton id="submit"
                                  value="Persist"
-                                 action="#{userController.createAccount()}"
+                                 action="#{userBean.createAccount()}"
                                  styleClass="btn btn-outline-secondary m-1" />
             
             </h:form>
