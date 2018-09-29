@@ -17,18 +17,42 @@
     </h:head>
 
     <h:body>
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+		
+            <a class="navbar-brand" href="#">MoodyMonday</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <h:link outcome="index" styleClass="nav-link" value="#{bundle.NavEnterMoodState}"/>
+                    </li>
+                    <li class="nav-item">
+                        <h:link outcome="login" styleClass="nav-link" value="#{bundle.NavMoodStateList}"/>
+                    </li>
+                    <li class="nav-item">
+                        <h:link outcome="createaccount" styleClass="nav-link" value="#{bundle.NavSetPassword}"/>
+                    </li>
+                </ul>
+                <h:form styleClass="form-inline my-2 my-lg-0">
+                    <h:selectOneMenu value="#{sessionBean.localeCode}" onchange="submit()"
+                            valueChangeListener="#{sessionBean.localeChanged}"
+                            styleClass="custom-select mr-sm-2">
+                            <f:selectItems value="#{sessionBean.countriesInMap}"/> 
+                    </h:selectOneMenu>
+
+                </h:form>
+
+            </div>
+	</nav>
 
         <main role="main" class="container">
             <div class="jumbotron mt-2">
                 #{sessionBean.setContextLocale()}
-                <h:form>
-                    <h:selectOneMenu value="#{sessionBean.localeCode}" onchange="submit()"
-                            valueChangeListener="#{sessionBean.localeChanged}">
-                            <f:selectItems value="#{sessionBean.countriesInMap}" 
-                                           class="form-control s-1"/> 
-                    </h:selectOneMenu>
-
-                </h:form>
+                
                 
                 <ui:insert name="main"></ui:insert>
             </div>
